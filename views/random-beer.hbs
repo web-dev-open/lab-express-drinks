@@ -1,0 +1,18 @@
+ <script type="text/javascript" src="/path/to/punkapi-javascript-wrapper/dist/punkapi-javascript-wrapper.js"></script>
+
+ 
+ {{#each beersFromApi}}
+    <img src="{{this.image_url}}" alt="">
+    <div>
+        <h1>{{this.name}}</h1>
+        <h2>{{this.tagline}}</h2>
+        <p>{{this.description}}</p>
+        <ul>
+            Food Pairing
+            <li>{{this.food_pairing}}</li>
+            {{!-- <li>{{this.food_pairing[1]}}</li>
+            <li>{{this.food_pairing[2]}}</li> --}}
+        </ul>
+        <h2><b>Brewers tips:</b>{{this.brewers_tips}}</h2>
+    </div>
+    {{/each}}
