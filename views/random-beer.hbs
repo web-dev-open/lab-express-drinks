@@ -1,0 +1,17 @@
+
+{{>navbar}}
+
+    
+<div id="content-section">
+
+  
+  {{> beerpartial beer}}
+
+  {{#each beer}}
+  
+  <p><b>Food Pairing:</b> {{food_pairing}}</p>
+  <p><b>Brewers Tips:</b> {{brewers_tips}}</p>
+
+  {{/each}}
+</div>
+
