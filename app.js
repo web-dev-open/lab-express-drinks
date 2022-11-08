@@ -4,6 +4,8 @@ const hbs = require('hbs');
 const path = require('path');
 const PunkAPIWrapper = require('punkapi-javascript-wrapper');
 
+hbs.registerPartials(__dirname + '/views/partials');
+
 const app = express();
 const punkAPI = new PunkAPIWrapper();
 
@@ -33,6 +35,14 @@ app.get('/randomBeer', function (req, res) {
 
   randomBeer
     .then(beer => res.render(__dirname + '/views/randomBeer.hbs', { beer }))
+    .catch(error => console.log(error));
+});
+
+app.get('/beer/:id', function userIdHandler(req, res) {
+  var beer = punkAPI.getBeer(req.params.id);
+
+  beer
+    .then(beer => res.render(__dirname + '/views/oneBeer.hbs', { beer }))
     .catch(error => console.log(error));
 });
 // ...
